@@ -110,6 +110,7 @@ module Supplejack
 
     def full_url(path, format = nil, params = {})
       params ||= {}
+      params[:api_key] ||= Supplejack.api_key
       params[:debug] = true if Supplejack.enable_debugging
       query = params.any? ? "?#{params.to_query}" : ''
 
